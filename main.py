@@ -12,6 +12,7 @@ X = X.fillna('none')
 y = df['price']  # Target variable to be predicted
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 # X_train, y_train = X, y
+# full dataset without split
 
 model.fit(X_train, y_train)
 
