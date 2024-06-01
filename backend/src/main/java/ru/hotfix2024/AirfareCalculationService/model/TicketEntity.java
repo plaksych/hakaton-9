@@ -1,14 +1,13 @@
 package ru.hotfix2024.AirfareCalculationService.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "tickets")
@@ -20,37 +19,36 @@ public class TicketEntity {
     @GeneratedValue
     private Long id;
 
-    @Positive
-    private Integer passenger;
+    @ManyToOne
+    @JoinColumn(name = "airline_id")
+    private AirlineEntity airline;
+
+    @ManyToOne
+    @JoinColumn(name = "depart_airport_id")
+    private AirportEntity departAirport;
+
+    @ManyToOne
+    @JoinColumn(name = "arrival_airport_id")
+    private AirportEntity arrivalAirport;
+
+    private String tariff;
 
     private Integer stops;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
     @Column(name = "class")
-    private TicketClassType ticketClass;
+    private String ticketClass;
 
-    @Future
-    @Column(name = "arrival")
-    private LocalDateTime arrivalDateTime;
+    @Column(name = "depart_date")
+    private LocalDate departDate;
 
-    @Future
-    @Column(name = "depart")
-    private LocalDateTime departDateTime;
+    @Column(name = "depart_time")
+    private LocalTime departTime;
+
+    @Column(name = "arrival_time")
+    private LocalTime arrivalTime;
 
     private Double price;
 
     // Конструктор с параметрами
-    public TicketEntity(Integer passenger, Integer stops, TicketClassType ticketClass, LocalDateTime departDateTime, LocalDateTime arrivalDateTime, Double price) {
-        this.passenger = passenger;
-
-        this.stops = stops;
-
-        this.ticketClass = ticketClass;
-
-        this.departDateTime = departDateTime;
-        this.arrivalDateTime = arrivalDateTime;
-
-        this.price = price;
-    }
 }

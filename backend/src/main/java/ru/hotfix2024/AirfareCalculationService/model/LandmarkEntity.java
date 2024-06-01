@@ -9,23 +9,31 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "locations")
+@Table(name = "landmarks")
 @Getter
 @Setter
 @NoArgsConstructor
-public class LocationEntity {
+public class LandmarkEntity {
     @Id @GeneratedValue
     private Long id;
-    private String country;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private CityEntity city;
+
     private String name;
+    private String description;
+    private String image;
 
     // Реализовать связь многие ко многим с таблицей "users"
-    @ManyToMany(mappedBy = "locations")
+    @ManyToMany(mappedBy = "landmarks")
     private Set<UserEntity> users = new HashSet<>();
 
-    public LocationEntity(String country, String name, Set<UserEntity> users) {
-        this.country = country;
+    public LandmarkEntity(CityEntity city, String name, String description, String image, Set<UserEntity> users) {
+        this.city = city;
         this.name = name;
+        this.description = description;
+        this.image = image;
         this.users = users;
     }
 }

@@ -1,13 +1,12 @@
 package ru.hotfix2024.AirfareCalculationService.dto;
 
-import ru.hotfix2024.AirfareCalculationService.model.LocationEntity;
+import ru.hotfix2024.AirfareCalculationService.model.LandmarkEntity;
 import ru.hotfix2024.AirfareCalculationService.model.TicketEntity;
 
 import java.time.LocalDate;
 import java.util.Set;
 
 public record UserDto(
-     Long id,
      String userName,
      String password,
 
@@ -18,7 +17,7 @@ public record UserDto(
      String gender,
      LocalDate birthDate,
 
-     Set<LocationEntity> locations,
+     Set<LandmarkEntity> locations,
      Set<TicketEntity> tickets
 )
 {}

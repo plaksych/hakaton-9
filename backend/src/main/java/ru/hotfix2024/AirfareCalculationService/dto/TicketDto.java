@@ -1,17 +1,25 @@
 package ru.hotfix2024.AirfareCalculationService.dto;
 
 
-import java.time.LocalDateTime;
+import ru.hotfix2024.AirfareCalculationService.model.LandmarkEntity;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public record TicketDto(
-        Long id,
-        Integer passenger,
-        Integer stops,
-        String ticketClass,
+    LandmarkEntity location,
 
-        LocalDateTime arrivalDateTime,
-        LocalDateTime departDateTime,
+    String aircraftModel,
+    String airline,
+    String tariff,
 
-        Double price
+    Integer stops,
+    String ticketClass,
+
+    LocalDate departDate,
+    LocalTime departTime,
+    LocalTime arrivalTime,
+
+    Double price
 )
 {}

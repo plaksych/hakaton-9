@@ -5,7 +5,7 @@ import org.mapstruct.MappingConstants;
 import ru.hotfix2024.AirfareCalculationService.model.TicketEntity;
 import ru.hotfix2024.AirfareCalculationService.dto.TicketDto;
 
-import ru.hotfix2024.AirfareCalculationService.model.LocationEntity;
+import ru.hotfix2024.AirfareCalculationService.model.LandmarkEntity;
 import ru.hotfix2024.AirfareCalculationService.dto.LocationDto;
 
 import ru.hotfix2024.AirfareCalculationService.model.UserEntity;
@@ -16,8 +16,8 @@ public interface EntityToDtoMapper {
     UserDto mapUserEntityToDto(UserEntity userEntity);
     UserEntity mapUserDtoToEntity(UserDto userDto);
 
-    LocationDto mapLocationEntityToDto(LocationEntity locationEntity);
-    LocationEntity mapLocationDtoToEntity(LocationDto locationDto);
+    LocationDto mapLocationEntityToDto(LandmarkEntity landmarkEntity);
+    LandmarkEntity mapLocationDtoToEntity(LocationDto locationDto);
 
     TicketDto mapTicketEntityToDto(TicketEntity ticketEntity);
     TicketEntity mapTicketDtoToEntity(TicketDto ticketDto);

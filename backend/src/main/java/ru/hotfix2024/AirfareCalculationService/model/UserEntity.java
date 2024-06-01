@@ -46,13 +46,13 @@ public class UserEntity {
     // Сделать связь многие ко многим с таблицами "локация" и "билеты", связь должна быть скорее всего однонаправленной, владеющая сторона -- "пользователь"
     // Каскадируем операции сохранения и изменения.
     // Используется для простых таблиц связей
-    @ManyToMany(cascade = {CascadeType.PERSIST})
+    @ManyToMany
     @JoinTable(
         name = "user_location",
         joinColumns = {@JoinColumn(name = "user_id")},
         inverseJoinColumns = {@JoinColumn(name = "location_id")}
     )
-    private Set<LocationEntity> locations = new HashSet<>();
+    private Set<LandmarkEntity> locations = new HashSet<>();
 
     @ManyToMany(cascade = {CascadeType.PERSIST})
     @JoinTable(
@@ -63,7 +63,7 @@ public class UserEntity {
     private Set<TicketEntity> tickets = new HashSet<>();
 
     // Конструктор с параметрами
-    public UserEntity(String userName, String password, String lastName, String firstName, String patronym, String gender, LocalDate birthDate, Set<LocationEntity> locations, Set<TicketEntity> tickets) {
+    public UserEntity(String userName, String password, String lastName, String firstName, String patronym, String gender, LocalDate birthDate, Set<LandmarkEntity> locations, Set<TicketEntity> tickets) {
         this.userName = userName;
         this.password = password;
 

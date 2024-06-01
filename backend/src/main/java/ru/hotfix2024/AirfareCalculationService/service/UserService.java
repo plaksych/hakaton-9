@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.hotfix2024.AirfareCalculationService.dto.UserDto;
 import ru.hotfix2024.AirfareCalculationService.exception.EntityNotFoundException;
-import ru.hotfix2024.AirfareCalculationService.model.LocationEntity;
+import ru.hotfix2024.AirfareCalculationService.model.LandmarkEntity;
 import ru.hotfix2024.AirfareCalculationService.model.UserEntity;
 import ru.hotfix2024.AirfareCalculationService.repository.UserRepository;
 import ru.hotfix2024.AirfareCalculationService.util.EntityToDtoMapper;
@@ -16,13 +16,13 @@ public class UserService {
     private final UserRepository repository;
     private final EntityToDtoMapper mapper;
 
-    // Вопрос ? К какому пользователю добавлять в избранное ?
-    public void addToFavorites(Long userId, LocationEntity location) {
+    public void addToFavorites(Long userId, LandmarkEntity location) {
         UserEntity user = repository.findById(userId).orElseThrow(() -> new EntityNotFoundException("Пользователь с идентфикатором " + userId + " не найден"));
 
         user.getLocations().add(location);
     }
 
+    // ? Как это переделать через веб токены ???
     public UserDto updateProfile(Long userId, UserDto updatedUser) {
         UserEntity existingUser = repository.findById(userId).orElseThrow(() -> new EntityNotFoundException("Пользователь и идентификатором " + userId + " не найден."));
 
@@ -41,4 +41,8 @@ public class UserService {
 
         return mapper.mapUserEntityToDto(repository.save(existingUser));
     }
+
+
+    // Должен быть доступен функционал расчета стоимости авиабилета, стоимости не должно быть в dto для контретного пользователя
+
 }
