@@ -1,0 +1,18 @@
+version: '3.2'
+
+volumes:
+  pg_airfare_calc_service:
+
+services:
+  learnMVC_db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      - 'POSTGRES_DB=airfare_calc_service_db'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=pass'
+    volumes:
+      - pg_airfare_calc_service:/var/lib/postgresql/data
+    ports:
+      # Порт для серверного приложения и для контейнера с базой данных.
+      - '127.0.0.1:5432:5432'

@@ -1,0 +1,31 @@
+.root {
+  color: white;
+  position: relative;
+  height: 400px;
+  background: url("/background.png") no-repeat;
+  background-position: center;
+
+  .container {
+    padding: 0 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.navigation {
+  padding: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+  ul {
+    display: flex;
+    gap: 15px;
+  }
+}
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+}

@@ -1,0 +1,47 @@
+.root {
+  margin-bottom: 20px;
+  .cart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    .elem {
+      height: 171px;
+      background-color: #c2cff0;
+      border-radius: 5px;
+      display: flex;
+      &.way {
+        background-color: #fff8e1;
+      }
+      .image {
+        height: 100%;
+        width: 235px;
+        background: url("/popular.jpg") no-repeat;
+      }
+      .text {
+        color: #4e4e4e;
+        font-size: 18px;
+        font-weight: 600;
+
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        span {
+          font-size: 16px;
+          color: #727171;
+        }
+      }
+    }
+  }
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 17px;
+}
+.icon:hover {
+  path {
+    fill: red;
+  }
+}
