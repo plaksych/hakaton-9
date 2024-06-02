@@ -16,4 +16,4 @@
 
 ## Ссылки
 
-- [Figma макет проекта](https://www.figma.com/design/rfraUFGIVgjAFuMYhh4ngw/Untitled?node-id=3-69&t=V9PXpA7YnxTEPPTJ-1)
+- [Figma макет проекта](https://www.figma.com/design/N8FuULehTJEGviPCiLlYyA/design?node-id=25-743&t=KmtrnKDw5A8FX29i-1)
